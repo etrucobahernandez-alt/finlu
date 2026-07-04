@@ -89,7 +89,7 @@
 
   header{
     position:relative; z-index:1;
-    padding: 22px 22px 8px;
+    padding: calc(18px + env(safe-area-inset-top)) 22px 8px;
     display:flex; align-items:flex-start; justify-content:space-between;
   }
   .greeting{ font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:1.55rem; color:var(--ink); line-height:1.22; max-width:250px;}
@@ -142,7 +142,7 @@
 
   .category-grid{
     display:grid; grid-template-columns: repeat(3, 1fr); gap: 11px;
-    margin-bottom: 110px;
+    margin-bottom: calc(130px + env(safe-area-inset-bottom));
   }
   .cat-btn{
     border:none; cursor:pointer;
@@ -165,7 +165,7 @@
   .cat-btn.selected{ border-color: var(--ink); transform: scale(1.04); }
 
   .save-bar{
-    position:fixed; left:0; right:0; bottom:64px; z-index:5;
+    position:fixed; left:0; right:0; bottom: calc(76px + env(safe-area-inset-bottom)); z-index:5;
     display:flex; justify-content:center;
     pointer-events:none;
   }
@@ -705,7 +705,7 @@
 
   if('serviceWorker' in navigator){
     window.addEventListener('load', function(){
-      navigator.serviceWorker.register('./sw.js').catch(function(){ /* offline install not available in this context */ });
+      navigator.serviceWorker.register('./sw.js').catch(function(){ /* offline no disponible */ });
     });
   }
 })();
